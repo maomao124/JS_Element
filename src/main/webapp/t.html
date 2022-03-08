@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!--
+Project name(项目名称)：JS_Element
+  File name(文件名): t
+  Authors(作者）: mao
+  Author QQ：1296193245
+  GitHub：https://github.com/maomao124/
+  Date(创建日期)： 2022/3/8
+  Time(创建时间)： 12:11
+  Description(描述)： 无
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="test1.js"></script>
+    <script src="test2.js"></script>
+    <style>
+        div.test {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body onload="accesskey()">
+<div id="test1" class="test"></div>
+<a id="r" class="aaa bbb ccc" href="javascript:;">使用 Alt + r 访问该元素</a><br>
+<a id="g" href="javascript:;">使用 Alt + g 访问该元素</a>
+<script type="text/javascript">
+    function accesskey()
+    {
+        document.getElementById('r').accessKey = "r"
+        document.getElementById('g').accessKey = "g"
+    }
+
+    var ele = document.getElementById('r');
+    console.log(ele.attributes);                            // 输出：NamedNodeMap {0: id, 1: href, id: id, href: href, length: 2}
+    console.log(document.body.childNodes);                  // 输出：NodeList(7) [text, a#r, br, text, a#g, text, script]
+    console.log(ele.classList);                             // 输出：DOMTokenList(3) ["aaa", "bbb", "ccc", value: "aaa bbb ccc"]
+    console.log(ele.className);                             // 输出：aaa bbb ccc
+    console.log(ele.clientHeight);                          // 输出：DOMTokenList(3) ["aaa", "bbb", "ccc", value: "aaa bbb ccc"]
+    console.log(ele.tagName);                               // 输出：A
+    console.log(ele.compareDocumentPosition(document.getElementById('g')));     // 输出：4
+    console.log(ele.getAttribute('href'));                  // 输出：javascript:;
+    console.log(ele.getAttributeNode('href'));              // 输出：href="javascript:;"
+</script>
+</body>
+</html>
